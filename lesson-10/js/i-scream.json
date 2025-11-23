@@ -25,6 +25,28 @@
         "clover honey"
       ],
       "image" : "peach-mango.svg"
+    },
+    {
+      "name": "Luscious Lemon",
+      "calories": 275,
+      "type": "sorbet",
+      "ingredients": [
+        "lemon purée",
+        "lemon flavour",
+        "sprinkles"
+      ],
+      "image": "ice-cream-xtra1.svg"
+    },
+    {
+      "name": "French Vanilla Chocolate Chip",
+      "calories": 450,
+      "type": "ice cream",
+      "ingredients": [
+        "french vanilla cream",
+        "chocolate chips",
+        "vanilla extract"
+      ],
+      "image": "ice-cream-xtra2.svg"
     }
   ]
 }
