@@ -52,8 +52,18 @@ function showTopFlavors(jsonObj) {
         // STEP 10f: Set the textContent property for each of the above elements (except the UL), based on the JSON content
         h2.textContent = topFlavors[f].name;
         img.setAttribute('src', 'https://megansummers316.github.io/1073LessonWork/lesson-10/images/' + topFlavors[f].image);
+        
+        //add other elements for calories and type
         caloriesP.textContent = topFlavors[f].calories + " calories";
         typeP.textContent = "Type: " + topFlavors[f].type;
+        //set background colour according to type
+        if (topFlavors[f].type.toLowerCase() === 'sorbet') {
+            article.style.backgroundColor = '#C8FFBE';
+        }
+        else if (topFlavors[f].type.toLowerCase() === 'ice cream') {
+            article.style.backgroundColor = '#EDFFAB';
+        }
+
         // STEP 10g: Build a loop for the ingredients array in the JSON
         let ingredients = topFlavors[f].ingredients;
         for (let i = 0; i < ingredients.length; i++) {
