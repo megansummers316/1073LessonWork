@@ -36,6 +36,10 @@ function populateHeader(jsonObj) {
 function showTopFlavors(jsonObj) {
     // STEP 10c: Attache the JSON topFlavors object to a variable
     let topFlavors = jsonObj.topFlavors;
+
+    //sort the flavours by calories before displaying (lowest to highest)
+    topFlavors.sort((a, b) => a.calories - b.calories);
+
     // STEP 10d: Loop through the topFlavors object
     for (let f = 0; f < topFlavors.length; f++) {
         // STEP 10e: build HTML elements for the content
