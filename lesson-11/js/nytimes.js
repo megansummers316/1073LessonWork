@@ -31,20 +31,23 @@ function fetchResults(event) {
     }
 
     // STEP 4: Use fetch() to pass the URL that we built as a request to the API service, then pass the JSON to the displayResults() function
-    
+    fetch(url)
+    .then(result =>{return result.json()})
+    .then(json =>{displayResults(json)})
+    .catch(error => {console.log("Error: " + error)});
 
-};
+}
 
 function displayResults(json) {
     // STEP 5: Log to the console the results from the API
-    
+    console.log(json);
 
     // Clear out the old results…
     while (section.firstChild) {
             section.removeChild(section.firstChild);
-    };
+    }
     // STEP 6: Create the variable articles to capture the articles from the JSON object
-    	
+    let articles = json.response.docs;
 
     if (articles.length === 0) {
         const para = document.createElement('p');
@@ -61,20 +64,23 @@ function displayResults(json) {
             const current = articles[i];
             console.log(current);
             // STEP 7a: Look at the console output from the API…
-            
+            link.href = articles[i].web_url;
+            link.textContent = articles[i].headline.main;
             // STEP 7b: Grab the content from the JSON for the hyperlink and the article teaser (snippet)
-            
-
+            para1.textContent = articles[i].snippet;
+            //adding the images
             if(current.multimedia.length > 0) {
                 img.src = 'https://www.nytimes.com/' + current.multimedia[0].url;
                 img.alt = current.headline.main;
-            };
+            }
             // STEP 8: Put each article together as an ARTICLE element and append it as a child of the SECTION element in the HTML
-            
-
-            
-        };
-    };
-};
+            article.appendChild(heading);
+            heading.appendChild(link);
+            article.appendChild(img);
+            article.appendChild(para1);
+            section.appendChild(article);            
+        }
+    }
+}
 
 // This example adapted from "Third-party APIs" at https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Third_party_APIs
