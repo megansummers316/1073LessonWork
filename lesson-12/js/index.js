@@ -19,21 +19,24 @@
 		section.appendChild(para); //makes it the LAST child of the section
 		/* STEP 3d: Refresh the page in the browser and look at the updated element inspector */
 		/* STEP 3e: Create a text node, and insert it into the paragraph that contains the link */
-		let textNode = document.createTextNode('MDN is the best source for web development information on the web');
+		let textNode = document.createTextNode(' MDN is the best source for web development information on the web');
 		let linkPara = document.querySelector('section p');
 		linkPara.appendChild(textNode);
 		/* STEP 4: Moving and Removing DOM Elements
 		Sometimes it is necessary to move nodes of the DOM around or delete them entirely */
 		/* STEP 4a: Move linkParagraph to another location in the DOM */
-		
+		section.appendChild(linkPara);
 		/* STEP 4b: Remove the node */
 		//section.removeChild(linkParagraph);
 		/* STEP 4c: Comment out the above step and remove the node directly, instead */
-		
+		linkPara.remove();
 
 		/* STEP 5: Manipulating Document Styles
 		There are a number of ways of changing the visual styles of the document object */
-		
+		/* para.style.color = 'white';
+		para.style.backgroundColor = 'black';
+		para.style.padding = '25px';
+		para.style.width = 'fit-content'; */
 
 		/* STEP 5a: Directly add inline CSS with the style attribute (set the value of various style properties) */
 
@@ -42,21 +45,27 @@
 		/* STEP 5c: More commonly, JavaScript is used to add/remove classes to element nodes that reference embedded or external CSS - comment out the above style properties and build the equivalent inside the attached CSS file, styles.css */
 
 		/* STEP 5d: Add the class 'highlight' to the paragraph */
-		
+		para.setAttribute('class', 'highlight');
 		/* STEP 6: Assign the BODY to a variable */
-		
+		let body = document.querySelector('body');
 		/* STEP 7: Collect the width and height of the document window */
 		
-
 		/* STEP 8: Change the border of the BODY */
-		
+		body.style.border = '10px dotted red';
 
 		/* STEP 9: Change the height and width of the BODY to equal 75% of the document window */
 		
 		
 		/* STEP 10: View the result in the browser - and try resizing the window */
 		/* STEP 11: Build a function that responds to the window.onresize event and revises the size of the BODY accordingly */
-		
+		function resizeBody() {
+			let bWidth = window.innerWidth;
+			let bHeight = window.innerHeight;
+			body.style.width = (bWidth * 0.75) + 'px';
+			body.style.height = (bHeight * 0.75) + 'px';
+		}
+		window.addEventListener('resize', resizeBody);
+		resizeBody();
 
 		/* STEP 12: Try the improved script in the browser - watch the inline style of the DIV change with the resizing of the window in the browser dev tools */
 
