@@ -1,26 +1,27 @@
 		/* STEP 2a: Select an element inside the DOM and store a reference to in inside a variable */
-		
+		let link = document.querySelector('a');
 		/* STEP 2b: Update the text node inside the link by changing the Node.textContent property */
-		
+		link.textContent = 'MDN Homepage';
 		/* STEP 2c: Change the URL by updating the href attribute node */
-		
+		link.href = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript';
 		// The above DOM manipulation was possible due to document.querySelector() - other methods available include document.getElementById(), document.getElementsByClassName(), document.getElementsByTagName() and others…
 		
 
 		/* STEP 3: Creating New Nodes and Inserting Them Into the DOM
 		We are familiar with the above methods as we’ve used them before in this course - so let’s now go a bit further and add other nodes */
-
-		/* STEP 3a: Grab the SECTION element */
 		
+		/* STEP 3a: Grab the SECTION element from html */
+		let section = document.querySelector('section');
 		/* STEP 3b: Create a new P element, and add a text node */
-		
-
+		let para = document.createElement('p');
+		para.textContent = "We hope you find MDN helpful";
 		/* STEP 3c: Add this new node to the end of the nodes contained by the SECTION element */
-		
+		section.appendChild(para); //makes it the LAST child of the section
 		/* STEP 3d: Refresh the page in the browser and look at the updated element inspector */
 		/* STEP 3e: Create a text node, and insert it into the paragraph that contains the link */
-		
-
+		let textNode = document.createTextNode('MDN is the best source for web development information on the web');
+		let linkPara = document.querySelector('section p');
+		linkPara.appendChild(textNode);
 		/* STEP 4: Moving and Removing DOM Elements
 		Sometimes it is necessary to move nodes of the DOM around or delete them entirely */
 		/* STEP 4a: Move linkParagraph to another location in the DOM */
