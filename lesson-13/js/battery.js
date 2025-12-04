@@ -31,6 +31,10 @@ navigator.getBattery().then(battery => {
   // STEP 4b: Event listener for changes to the charge level
   battery.addEventListener('levelchange', () => {
     updateBatteryStatus(battery);
+  })
+  .catch(error => {
+    console.error("Error getting battery information", error);
+    chargeStatus.textContent = "Unable to retrieve battery info";
   });
 });
 
